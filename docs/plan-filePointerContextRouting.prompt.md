@@ -41,9 +41,9 @@ TL;DR (EN): Add a file-pointer mode where the cloud side decides when to send re
 6.4 Confirm no path traversal and invalid-range handling.
 
 **Relevant files**
-- c:\Users\Masha\PycharmProjects\JunPilot\mcp_ollama_server.py — schema extension, pointer resolver, context assembly, guards, logging.
-- c:\Users\Masha\PycharmProjects\JunPilot\docs\plan-mcpOllamaExecutorUpgrade.prompt.md — main plan reference.
-- c:\Users\Masha\PycharmProjects\JunPilot\logs\mcp_ollama.log — observability output.
+- mcp_ollama_server.py — schema extension, pointer resolver, context assembly, guards, logging.
+- docs\plan-mcpOllamaExecutorUpgrade.prompt.md — main plan reference.
+- logs\mcp_ollama.log — observability output.
 
 **Decisions**
 - Cloud decides pointer usage and expansion depth.

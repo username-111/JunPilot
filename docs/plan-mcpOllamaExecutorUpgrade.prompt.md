@@ -5,7 +5,7 @@ TL;DR (EN): Keep the server as a simple MCP stdio tool, but turn local_code_assi
 
 **Steps**
 1. Phase 1 — Input/Output Contract Redesign
-1.1 Update tool description in c:\Users\Masha\PycharmProjects\JunPilot\mcp_ollama_server.py to explicitly instruct Copilot to pass user intent almost verbatim and avoid pre-solving.
+1.1 Update tool description in mcp_ollama_server.py to explicitly instruct Copilot to pass user intent almost verbatim and avoid pre-solving.
 1.2 Extend inputSchema with task_type enum (generate_code, write_tests, fix_error, refactor), plus optional fields for TDD loop: requirements, existing_code, tests, runtime_errors, language_hint, prefer_diff.
 1.3 Define structured output JSON fields: result_type, language, content, summary, format, task_type, tokens_used(optional if available). Keep summary short and content-only.
 1.4 Keep backwards compatibility: if missing task_type, default to generate_code.
@@ -41,9 +41,9 @@ TL;DR (EN): Keep the server as a simple MCP stdio tool, but turn local_code_assi
 6.5 Observability check: validate log lines in logs/mcp_ollama.log include all required metrics and error cases.
 
 **Relevant files**
-- c:\Users\Masha\PycharmProjects\JunPilot\mcp_ollama_server.py — main MCP tool definition, schema, prompt assembly, Ollama call, response shaping, error handling, logging.
-- c:\Users\Masha\PycharmProjects\JunPilot\pyproject.toml — optional dependency updates only if needed (likely none).
-- c:\Users\Masha\PycharmProjects\JunPilot\logs\mcp_ollama.log — runtime log target (created at runtime).
+- mcp_ollama_server.py — main MCP tool definition, schema, prompt assembly, Ollama call, response shaping, error handling, logging.
+- pyproject.toml — optional dependency updates only if needed (likely none).
+- logs\mcp_ollama.log — runtime log target (created at runtime).
 
 **Verification**
 1. Start server and inspect MCP tool metadata to confirm updated description and schema fields.
