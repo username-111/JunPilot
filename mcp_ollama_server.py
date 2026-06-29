@@ -5,6 +5,7 @@ from mcp.types import TextContent, Tool
 import httpx
 import asyncio
 import re
+import time
 
 app = Server("ollama-coder")
 
@@ -51,6 +52,12 @@ def extract_final_answer(text: str) -> str:
 
 @app.call_tool()
 async def call_tool(name: str, arguments: dict):
+    print("=" * 80)
+    print(time.strftime("%H:%M:%S"))
+    print("PROMPT:")
+    print(arguments.get("prompt"))
+    print("=" * 80)
+
     if name != "local_code_assistant":
         raise ValueError(f"Unknown tool: {name}")
     
